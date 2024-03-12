@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * This class provides various Skill Builder 5 - Array
  * exercises.
@@ -18,7 +20,13 @@ public class SkillBuilder5
     public static double[] prefixAverage(double[] data)
     {
         //TODO: replace this line with your code.
-        return null;
+        double[]kam = new double[data.length];
+        double sum = 0;
+        for(int i = 0;i < data.length; i++){
+            sum += data[i];
+            kam[i] = sum/(i+1);
+        }
+        return kam;
     }
 
     /**
@@ -32,7 +40,13 @@ public class SkillBuilder5
     public static int  indexOf(int searchValue, int[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+
+        for(int i = 0;i < anArray.length; i++){
+           if(anArray[i] == searchValue){
+               return  i;
+           }
+        }
+        return -1;
     }
 
     /**
@@ -46,7 +60,12 @@ public class SkillBuilder5
     public static int  indexOf(String s, String[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        for(int i = 0;i < anArray.length; i++){
+            if(anArray[i] == s){
+                return  i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -59,7 +78,21 @@ public class SkillBuilder5
     public static String[] remove(String s, String[] anArray)
     {
         // add your code here
-        return null;
+        int c = 0;
+        for (String o : anArray){
+            if (o == s){
+                c+=1;
+            }
+        }
+        String[]kam = new String[anArray.length-c];
+        int l = 0;
+        for (int x = 0; x < anArray.length; x++){
+            if(s != anArray[x]){
+                kam[l] = anArray[x];
+                l+=1;
+            }
+        }
+        return kam;
     }
 
     /**
@@ -69,5 +102,15 @@ public class SkillBuilder5
     public static void reverse(int[] anArray)
     {
         // add your code here
+        int[]kam = new int[anArray.length];
+        int l = 0;
+        for(int x = anArray.length-1; x >= 0; x-=1){
+           kam[l] = anArray[x];
+           l+=1;
+        }
+        for (int i = 0; i < anArray.length; i+=1){
+            anArray[i] = kam[i];
+        }
+
     }
 }
